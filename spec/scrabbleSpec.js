@@ -1,32 +1,42 @@
-describe('Scrabble Solver', function(){
-    it('method retuns 0 when string is empty', function(){
-        var string = ''
-        var score = getScore(string)
-        expect(score).toEqual(0)
+describe('SCRABBLE', function(){
+    it('returns 0 when string is []', function(){
+        var string = []
+        var result = getScore(string)
+        expect(result).toEqual(0)
     })
-    it('returns 0 when nil entered', function(){
-        var string = [] 
-        var score = getScore(string)
-        expect(score).toEqual(0)
+    it('returns 0 when string is empty', function(){
+        var string =''
+        var result = getScore(string)
+        expect(result).toEqual(0)
     })
-    it("should return 1 when 'a' is the string", function(){
-        var string ='a'
-        var score = getScore(string)
-        expect(score).toEqual(1)
-    } )
-    it('should return 4 when string is f', function(){
-        var string = 'f'
-        var score = getScore(string)
-        expect(score).toEqual(4)
+    it('returns 0 when string includes line breaks', function(){
+        var string = '\t\n'
+        var result = getScore(string)
+        expect(result).toEqual(0)
     })
-    it("should return 6 when string is 'street'", function(){
-        var string = "street"
-        var score = getScore(string)
-        expect(score).toEqual(6)
+    it('returns 1 when string is a', function(){
+        var string = 'a'
+        var result = getScore(string)
+        expect(result).toEqual(1)
     })
-    it("should return 22 when string is 'quirky'", function(){
+    it('returns 4 when string is f', function(){
+        var string ='f'
+        var result = getScore(string)
+        expect(result).toEqual(4)
+    })
+    it('returns 6 when string is street', function(){
+        var string = 'street'
+        var result = getScore(string)
+        expect(result).toEqual(6)
+    })
+    it('returns 22 when word is quirky', function(){
         var string = 'quirky'
-        var score = getScore(string)
-        expect(score).toEqual(22)
+        var result = getScore(string)
+        expect(result).toEqual(22)
+    })
+    it('returns 41 when string is OXYPHENBUTAZONE', function(){
+        var string = 'OXYPHENBUTAZONE'
+        var result = getScore(string)
+        expect(result).toEqual(41)
     })
 })
